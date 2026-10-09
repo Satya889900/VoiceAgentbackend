@@ -873,5 +873,69 @@
         "audioOutputCost": 0.0042
       }
     }
+  },
+  {
+    "id": "153dad79-8037-4a29-9839-37e0b26f6997",
+    "status": "completed",
+    "persona": {
+      "id": "gemini_assistant",
+      "name": "Gemini Voice Assistant",
+      "systemPrompt": "You are Gemini, a helpful, friendly, and highly intelligent conversational voice assistant.\nRespond naturally to any question the user asks.\nKeep your spoken responses concise, engaging, and direct (typically 1-3 natural sentences) so it flows smoothly in real-time voice conversations.\nDo not use markdown formatting like asterisks, bullet points, or code blocks, since your words will be spoken out loud."
+    },
+    "startTime": "2026-10-09T10:08:32.704Z",
+    "endTime": "2026-10-09T10:08:55.534Z",
+    "durationSeconds": 23,
+    "transcript": [
+      {
+        "role": "user",
+        "text": "hello",
+        "timestamp": "2026-10-09T10:08:38.764Z",
+        "audioSeconds": 4
+      },
+      {
+        "role": "agent",
+        "text": "Hello! How can I help you today?",
+        "timestamp": "2026-10-09T10:08:38.764Z",
+        "audioSeconds": 3,
+        "tokens": {
+          "inputTokens": 85,
+          "outputTokens": 9
+        },
+        "turnCost": 0.000262
+      },
+      {
+        "role": "user",
+        "text": "tell me about yourself",
+        "timestamp": "2026-10-09T10:08:47.136Z",
+        "audioSeconds": 3
+      },
+      {
+        "role": "agent",
+        "text": "I'm Gemini, your AI voice assistant. I'm here to chat, answer questions, help you brainstorm, or just make your day a little easier. What would you like to talk about?",
+        "timestamp": "2026-10-09T10:08:47.136Z",
+        "audioSeconds": 12,
+        "tokens": {
+          "inputTokens": 100,
+          "outputTokens": 41
+        },
+        "turnCost": 0.000799
+      }
+    ],
+    "usage": {
+      "inputTokens": 185,
+      "outputTokens": 50,
+      "audioInputSeconds": 7,
+      "audioOutputSeconds": 15,
+      "totalTokens": 860
+    },
+    "cost": {
+      "totalCost": 0.001061,
+      "breakdown": {
+        "textInputCost": 0.000019,
+        "textOutputCost": 0.00002,
+        "audioInputCost": 0.000122,
+        "audioOutputCost": 0.0009
+      }
+    }
   }
 ]
