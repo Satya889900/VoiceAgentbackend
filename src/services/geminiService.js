@@ -4,54 +4,112 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 export const PERSONAS = {
+  gemini_assistant: {
+    id: 'gemini_assistant',
+    name: 'Gemini Voice Assistant',
+    description: 'Intelligent, helpful voice assistant ready to answer any question.',
+    systemPrompt: `You are Gemini, a helpful, friendly, and highly intelligent conversational voice assistant.
+Respond naturally to any question the user asks.
+Keep your spoken responses concise, engaging, and direct (typically 1-3 natural sentences) so it flows smoothly in real-time voice conversations.
+Do not use markdown formatting like asterisks, bullet points, or code blocks, since your words will be spoken out loud.`,
+  },
   customer_support: {
     id: 'customer_support',
     name: 'Customer Support Representative',
     description: 'Empathetic, helpful, and concise customer support agent.',
     systemPrompt: `You are Nova, a friendly and empathetic customer support representative for CloudTech Solutions.
-Keep your spoken responses natural, conversational, polite, and concise (under 2-3 sentences), since this is a real-time voice conversation.
-Acknowledge the user's issue directly, provide clear steps, and offer further assistance.`,
+Respond naturally to any inquiry or issue the user raises.
+Keep your spoken responses natural, polite, and under 2-3 sentences.
+Do not use markdown formatting like asterisks or bullet points since your response is spoken out loud.`,
   },
   sales_rep: {
     id: 'sales_rep',
     name: 'Product Sales Executive',
     description: 'Persuasive, energetic, and value-focused sales advisor.',
-    systemPrompt: `You are Alex, an energetic and knowledgeable sales consultant for Apex AI.
-Keep your responses engaging, persuasive, and under 2-3 sentences for spoken audio.
-Highlight product benefits, address objections warmly, and encourage booking a live demo.`,
+    systemPrompt: `You are Alex, an energetic sales consultant for Apex AI.
+Highlight benefits, answer questions enthusiastically, and keep your responses under 2-3 spoken sentences.
+Do not use markdown formatting since your response will be spoken out loud.`,
   },
   technical_support: {
     id: 'technical_support',
     name: 'Technical Solutions Specialist',
     description: 'Analytical, clear, and troubleshooting-oriented technical engineer.',
     systemPrompt: `You are Taylor, a senior technical support engineer.
-Deliver direct, troubleshooting-focused answers in 2-3 short sentences suited for spoken voice conversation.
-Clarify error states, diagnose root causes concisely, and give actionable next steps.`,
+Deliver direct, troubleshooting-focused answers to any technical questions in 2-3 short spoken sentences.
+Do not use markdown formatting since your response will be spoken out loud.`,
   },
   custom: {
     id: 'custom',
     name: 'Custom Persona',
     description: 'User-defined persona with configurable system prompt.',
-    systemPrompt: `You are a helpful and responsive AI voice assistant. Respond concisely in 2 sentences.`,
+    systemPrompt: `You are a helpful and responsive AI voice assistant. Answer the user's questions concisely in 1-2 spoken sentences.`,
   },
 };
 
-let genAIClient = null;
+// Models in order of latency and availability preference
+const MODELS = [
+  'gemini-flash-latest',
+  'gemini-2.5-flash-lite',
+  'gemini-3.5-flash',
+  'gemini-3.8-flash',
+];
 
-function getClient() {
-  const apiKey = process.env.GEMINI_API_KEY;
-  if (!apiKey || apiKey.trim() === '' || apiKey === 'YOUR_GEMINI_API_KEY_HERE') {
-    return null;
+/**
+ * Gather all configured API keys from environment
+ */
+function getKeyPool() {
+  const pool = [];
+
+  if (process.env.GEMINI_API_KEY && process.env.GEMINI_API_KEY.trim() !== 'YOUR_GEMINI_API_KEY_HERE') {
+    pool.push(process.env.GEMINI_API_KEY.trim());
   }
-  if (!genAIClient) {
-    try {
-      genAIClient = new GoogleGenAI({ apiKey });
-    } catch (err) {
-      console.warn('Failed to initialize GoogleGenAI client:', err.message);
-      return null;
+
+  for (let i = 1; i <= 20; i++) {
+    const k = process.env[`GEMINI_API_KEY_${i}`];
+    if (k && k.trim() && !pool.includes(k.trim())) {
+      pool.push(k.trim());
     }
   }
-  return genAIClient;
+
+  if (process.env.GEMINI_API_KEYS) {
+    process.env.GEMINI_API_KEYS.split(',').forEach((k) => {
+      const clean = k.trim();
+      if (clean && !pool.includes(clean)) pool.push(clean);
+    });
+  }
+
+  return pool;
+}
+
+let keyIndex = 0;
+
+function getNextClient() {
+  const keys = getKeyPool();
+  if (keys.length === 0) return null;
+
+  const key = keys[keyIndex % keys.length];
+  keyIndex = (keyIndex + 1) % keys.length;
+
+  try {
+    return { client: new GoogleGenAI({ apiKey: key }), key };
+  } catch (err) {
+    console.warn('Failed to initialize GoogleGenAI with key:', err.message);
+    return null;
+  }
+}
+
+/**
+ * Clean spoken text: remove asterisks, hash headers, and code block formatting
+ */
+function cleanSpokenText(text = '') {
+  return text
+    .replace(/\*\*(.*?)\*\*/g, '$1') // Bold **text** -> text
+    .replace(/\*(.*?)\*/g, '$1')     // Italic *text* -> text
+    .replace(/`{1,3}(.*?)`{1,3}/g, '$1') // Inline code/blocks
+    .replace(/^#+\s+/gm, '')         // Headers #
+    .replace(/^\s*[-*•]\s+/gm, '')   // Bullet points
+    .replace(/\n+/g, ' ')            // Normalize newlines to spaces
+    .trim();
 }
 
 /**
@@ -63,92 +121,117 @@ export function estimateTokens(text = '') {
 }
 
 /**
- * Generates an agent voice response using Gemini or intelligent demo simulator.
+ * Format conversation history to strictly alternate between user and model
+ */
+function formatHistory(history = [], userMessage) {
+  const contents = [];
+
+  for (const item of history) {
+    if (!item.text || !item.text.trim()) continue;
+    const role = item.role === 'agent' ? 'model' : 'user';
+
+    // Must alternate roles
+    if (contents.length > 0 && contents[contents.length - 1].role === role) {
+      // Append text if same role
+      contents[contents.length - 1].parts[0].text += ` ${item.text.trim()}`;
+    } else {
+      contents.push({
+        role,
+        parts: [{ text: item.text.trim() }],
+      });
+    }
+  }
+
+  // Ensure first item is 'user' if history exists
+  if (contents.length > 0 && contents[0].role === 'model') {
+    contents.shift();
+  }
+
+  // Append latest user message
+  if (contents.length > 0 && contents[contents.length - 1].role === 'user') {
+    contents[contents.length - 1].parts[0].text += ` ${userMessage.trim()}`;
+  } else {
+    contents.push({
+      role: 'user',
+      parts: [{ text: userMessage.trim() }],
+    });
+  }
+
+  return contents;
+}
+
+/**
+ * Generates an agent voice response using Gemini live API with auto-rotation.
  */
 export async function generateVoiceResponse({
   userMessage,
   history = [],
-  personaId = 'customer_support',
+  personaId = 'gemini_assistant',
   customSystemPrompt = null,
 }) {
-  const selectedPersona = PERSONAS[personaId] || PERSONAS.customer_support;
+  const selectedPersona = PERSONAS[personaId] || PERSONAS.gemini_assistant;
   const systemInstruction = customSystemPrompt?.trim() || selectedPersona.systemPrompt;
-  const client = getClient();
+  const keys = getKeyPool();
 
-  if (client) {
-    try {
-      const contents = history.map((item) => ({
-        role: item.role === 'agent' ? 'model' : 'user',
-        parts: [{ text: item.text }],
-      }));
-      contents.push({
-        role: 'user',
-        parts: [{ text: userMessage }],
-      });
+  if (keys.length > 0) {
+    const contents = formatHistory(history, userMessage);
 
-      const response = await client.models.generateContent({
-        model: 'gemini-2.0-flash',
-        contents,
-        config: {
-          systemInstruction: { parts: [{ text: systemInstruction }] },
-          temperature: 0.7,
-          maxOutputTokens: 250,
-        },
-      });
+    // Try up to 3 keys and models with automatic rotation
+    const maxRetries = Math.min(keys.length * 2, 4);
 
-      const agentText = response.text ? response.text.trim() : 'I received your message.';
-      const usageMetadata = response.usageMetadata || {};
+    for (let attempt = 0; attempt < maxRetries; attempt++) {
+      const { client } = getNextClient() || {};
+      if (!client) continue;
 
-      const inputTokens = usageMetadata.promptTokenCount || (estimateTokens(systemInstruction) + estimateTokens(userMessage));
-      const outputTokens = usageMetadata.candidatesTokenCount || estimateTokens(agentText);
+      for (const model of MODELS) {
+        try {
+          const response = await client.models.generateContent({
+            model,
+            contents,
+            config: {
+              systemInstruction: { parts: [{ text: systemInstruction }] },
+              temperature: 0.7,
+              maxOutputTokens: 300,
+            },
+          });
 
-      return {
-        text: agentText,
-        inputTokens,
-        outputTokens,
-        model: 'gemini-2.0-flash',
-        isLiveGemini: true,
-      };
-    } catch (apiError) {
-      console.warn('Gemini API call failed, falling back to simulated engine:', apiError.message);
+          const rawText = response.text ? response.text.trim() : '';
+          const cleanedText = cleanSpokenText(rawText) || "I'm listening, could you say that again?";
+
+          const usageMetadata = response.usageMetadata || {};
+          const inputTokens =
+            usageMetadata.promptTokenCount ||
+            (estimateTokens(systemInstruction) + estimateTokens(userMessage));
+          const outputTokens = usageMetadata.candidatesTokenCount || estimateTokens(cleanedText);
+
+          return {
+            text: cleanedText,
+            inputTokens,
+            outputTokens,
+            model,
+            isLiveGemini: true,
+          };
+        } catch (err) {
+          // If rate limited or model busy, continue to next model/key
+          const msg = err.message || '';
+          if (msg.includes('404') || msg.includes('NOT_FOUND')) {
+            continue; // try next model
+          }
+          if (msg.includes('429') || msg.includes('503') || msg.includes('quota')) {
+            break; // rotate to next key
+          }
+        }
+      }
     }
   }
 
-  // Intelligent fallback simulator for instant demo/testing without API key
-  const fallbackResponses = {
-    customer_support: [
-      `Thank you for reaching out! I understand completely. Let me pull up your account details right away to assist you with this.`,
-      `I apologize for that inconvenience. I can definitely help resolve this for you today. Could you confirm your account ID or email?`,
-      `All set! I've logged that request and our team will follow up within the hour. Is there anything else I can help with?`,
-    ],
-    sales_rep: [
-      `That is an excellent question! Our AI voice agent automates up to 80% of customer interactions with near-zero latency.`,
-      `We'd love to show you a customized walkthrough. Would Tuesday or Thursday afternoon work better for a brief 10-minute demo?`,
-      `By integrating Gemini into your workflow, companies typically see a 4x reduction in response overhead and improved customer satisfaction!`,
-    ],
-    technical_support: [
-      `Understood. Let's inspect the error logs first. Could you check if the status code returned was a 400 or 500 series?`,
-      `That typically happens when the connection timeout is exceeded. Verify that your WebSocket endpoint is reachable on the configured port.`,
-      `I've noted the traceback. Let's restart the process with watch mode enabled so we can verify if the service binds to the port properly.`,
-    ],
-    custom: [
-      `I hear you clearly! As your assistant, I'm ready to handle this task with you right now.`,
-      `Understood. Let's proceed with that step right away.`,
-    ],
-  };
-
-  const pool = fallbackResponses[personaId] || fallbackResponses.customer_support;
-  const picked = pool[Math.floor(Math.random() * pool.length)];
-  const agentText = `${picked} (Demo Mode)`;
-
-  const inputTokens = estimateTokens(systemInstruction) + estimateTokens(userMessage);
-  const outputTokens = estimateTokens(agentText);
-
+  // Graceful conversational response if no keys reachable
+  const fallbackText = `I heard your question: "${userMessage}". To enable real-time Gemini answers, please ensure your GEMINI_API_KEY is active in the environment.`;
   return {
-    text: agentText,
-    inputTokens,
-    outputTokens,
-    model: 'gemini-2.0-flash (simulated)',
+    text: fallbackText,
+    inputTokens: estimateTokens(userMessage),
+    outputTokens: estimateTokens(fallbackText),
+    model: 'fallback-responder',
     isLiveGemini: false,
   };
 }

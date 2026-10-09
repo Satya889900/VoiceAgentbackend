@@ -42,9 +42,9 @@ class SessionStore {
     }
   }
 
-  createSession({ personaId = 'customer_support', customSystemPrompt = null }) {
+  createSession({ personaId = 'gemini_assistant', customSystemPrompt = null }) {
     const id = uuidv4();
-    const persona = PERSONAS[personaId] || PERSONAS.customer_support;
+    const persona = PERSONAS[personaId] || PERSONAS.gemini_assistant;
     const now = new Date().toISOString();
 
     const newSession = {

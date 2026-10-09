@@ -35,7 +35,7 @@ router.get('/sessions/:id', (req, res) => {
 
 // POST /api/sessions/start
 router.post('/sessions/start', (req, res) => {
-  const { personaId = 'customer_support', customSystemPrompt } = req.body;
+  const { personaId = 'gemini_assistant', customSystemPrompt } = req.body;
   const session = sessionStore.createSession({ personaId, customSystemPrompt });
   broadcastMetrics();
   res.status(201).json(session);
