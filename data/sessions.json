@@ -1163,5 +1163,150 @@
         "audioOutputCost": 0.00402
       }
     }
+  },
+  {
+    "id": "bc82e5e4-2633-40a1-840b-d022779307ca",
+    "status": "completed",
+    "persona": {
+      "id": "gemini_assistant",
+      "name": "Gemini Voice Assistant",
+      "systemPrompt": "You are Gemini, a helpful, friendly, and highly intelligent conversational voice assistant.\nRespond naturally to any question the user asks.\nKeep your spoken responses concise, engaging, and direct (typically 1-3 natural sentences) so it flows smoothly in real-time voice conversations.\nDo not use markdown formatting like asterisks, bullet points, or code blocks, since your words will be spoken out loud."
+    },
+    "startTime": "2026-10-09T11:09:21.215Z",
+    "endTime": "2026-10-09T11:09:57.212Z",
+    "durationSeconds": 36,
+    "transcript": [
+      {
+        "role": "user",
+        "text": "hello",
+        "timestamp": "2026-10-09T11:09:28.118Z",
+        "audioSeconds": 5
+      },
+      {
+        "role": "agent",
+        "text": "Hello! How can I help you today?",
+        "timestamp": "2026-10-09T11:09:28.118Z",
+        "audioSeconds": 3,
+        "tokens": {
+          "inputTokens": 132,
+          "outputTokens": 9
+        },
+        "turnCost": 0.000284
+      },
+      {
+        "role": "user",
+        "text": "what's time right now",
+        "timestamp": "2026-10-09T11:09:49.872Z",
+        "audioSeconds": 16
+      },
+      {
+        "role": "agent",
+        "text": "It's currently 4:39 PM.",
+        "timestamp": "2026-10-09T11:09:49.872Z",
+        "audioSeconds": 2,
+        "tokens": {
+          "inputTokens": 149,
+          "outputTokens": 11
+        },
+        "turnCost": 0.000419
+      }
+    ],
+    "usage": {
+      "inputTokens": 281,
+      "outputTokens": 20,
+      "audioInputSeconds": 21,
+      "audioOutputSeconds": 5,
+      "totalTokens": 976
+    },
+    "cost": {
+      "totalCost": 0.000704,
+      "breakdown": {
+        "textInputCost": 0.000028,
+        "textOutputCost": 0.000008,
+        "audioInputCost": 0.000367,
+        "audioOutputCost": 0.0003
+      }
+    }
+  },
+  {
+    "id": "3c960ea5-22b5-431e-9678-02bcf3b89867",
+    "status": "completed",
+    "persona": {
+      "id": "gemini_assistant",
+      "name": "Gemini Voice Assistant",
+      "systemPrompt": "You are Gemini, a helpful, friendly, and highly intelligent conversational voice assistant.\nRespond naturally to any question the user asks.\nKeep your spoken responses concise, engaging, and direct (typically 1-3 natural sentences) so it flows smoothly in real-time voice conversations.\nDo not use markdown formatting like asterisks, bullet points, or code blocks, since your words will be spoken out loud."
+    },
+    "startTime": "2026-10-09T11:10:42.841Z",
+    "endTime": "2026-10-09T11:12:03.955Z",
+    "durationSeconds": 81,
+    "transcript": [
+      {
+        "role": "user",
+        "text": "hello",
+        "timestamp": "2026-10-09T11:10:51.081Z",
+        "audioSeconds": 7
+      },
+      {
+        "role": "agent",
+        "text": "Hello! How can I help you today?",
+        "timestamp": "2026-10-09T11:10:51.081Z",
+        "audioSeconds": 3,
+        "tokens": {
+          "inputTokens": 132,
+          "outputTokens": 9
+        },
+        "turnCost": 0.000319
+      },
+      {
+        "role": "user",
+        "text": "what's time right now",
+        "timestamp": "2026-10-09T11:11:02.560Z",
+        "audioSeconds": 6
+      },
+      {
+        "role": "agent",
+        "text": "It's currently 4:41 PM.",
+        "timestamp": "2026-10-09T11:11:02.560Z",
+        "audioSeconds": 2,
+        "tokens": {
+          "inputTokens": 149,
+          "outputTokens": 11
+        },
+        "turnCost": 0.000244
+      },
+      {
+        "role": "user",
+        "text": "Jhooth Nahin",
+        "timestamp": "2026-10-09T11:11:58.056Z",
+        "audioSeconds": 51
+      },
+      {
+        "role": "agent",
+        "text": "Sach mein, abhi 4 baj kar 41 minute ho rahe hain. Mere system clock ke mutabiq toh yahi waqt hai!",
+        "timestamp": "2026-10-09T11:11:58.056Z",
+        "audioSeconds": 8,
+        "tokens": {
+          "inputTokens": 166,
+          "outputTokens": 31
+        },
+        "turnCost": 0.001401
+      }
+    ],
+    "usage": {
+      "inputTokens": 447,
+      "outputTokens": 51,
+      "audioInputSeconds": 64,
+      "audioOutputSeconds": 13,
+      "totalTokens": 2488
+    },
+    "cost": {
+      "totalCost": 0.001965,
+      "breakdown": {
+        "textInputCost": 0.000045,
+        "textOutputCost": 0.00002,
+        "audioInputCost": 0.00112,
+        "audioOutputCost": 0.00078
+      }
+    }
   }
 ]
