@@ -170,7 +170,23 @@ export async function generateVoiceResponse({
   customSystemPrompt = null,
 }) {
   const selectedPersona = PERSONAS[personaId] || PERSONAS.gemini_assistant;
-  const systemInstruction = customSystemPrompt?.trim() || selectedPersona.systemPrompt;
+  const baseSystemPrompt = customSystemPrompt?.trim() || selectedPersona.systemPrompt;
+
+  // Inject current date and time so Gemini can answer time-related questions
+  const now = new Date();
+  const dateTimeInfo = `\n\nCurrent date and time: ${now.toLocaleString('en-IN', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: true,
+    timeZone: 'Asia/Kolkata',
+  })} (IST, India Standard Time). Use this to answer any questions about the current time or date.`;
+
+  const systemInstruction = baseSystemPrompt + dateTimeInfo;
   const keys = getKeyPool();
 
   if (keys.length > 0) {

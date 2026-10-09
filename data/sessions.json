@@ -937,5 +937,231 @@
         "audioOutputCost": 0.0009
       }
     }
+  },
+  {
+    "id": "467c3868-8e2c-46ab-a295-6f67bcf157a5",
+    "status": "completed",
+    "persona": {
+      "id": "gemini_assistant",
+      "name": "Gemini Voice Assistant",
+      "systemPrompt": "You are Gemini, a helpful, friendly, and highly intelligent conversational voice assistant.\nRespond naturally to any question the user asks.\nKeep your spoken responses concise, engaging, and direct (typically 1-3 natural sentences) so it flows smoothly in real-time voice conversations.\nDo not use markdown formatting like asterisks, bullet points, or code blocks, since your words will be spoken out loud."
+    },
+    "startTime": "2026-10-09T10:54:32.126Z",
+    "endTime": "2026-10-09T10:54:56.194Z",
+    "durationSeconds": 45,
+    "transcript": [
+      {
+        "role": "user",
+        "text": "हेलो",
+        "timestamp": "2026-10-09T10:55:17.189Z",
+        "audioSeconds": 5
+      },
+      {
+        "role": "agent",
+        "text": "नमस्ते! बताइए, आज मैं आपकी क्या मदद कर सकती हूँ?",
+        "timestamp": "2026-10-09T10:55:17.189Z",
+        "audioSeconds": 4,
+        "tokens": {
+          "inputTokens": 85,
+          "outputTokens": 13
+        },
+        "turnCost": 0.000341
+      }
+    ],
+    "usage": {
+      "inputTokens": 85,
+      "outputTokens": 13,
+      "audioInputSeconds": 5,
+      "audioOutputSeconds": 4,
+      "totalTokens": 343
+    },
+    "cost": {
+      "totalCost": 0.000341,
+      "breakdown": {
+        "textInputCost": 0.000009,
+        "textOutputCost": 0.000005,
+        "audioInputCost": 0.000087,
+        "audioOutputCost": 0.00024
+      }
+    }
+  },
+  {
+    "id": "33ef3727-81f9-4b87-9b4d-a46f1bcb25d1",
+    "status": "completed",
+    "persona": {
+      "id": "gemini_assistant",
+      "name": "Gemini Voice Assistant",
+      "systemPrompt": "You are Gemini, a helpful, friendly, and highly intelligent conversational voice assistant.\nRespond naturally to any question the user asks.\nKeep your spoken responses concise, engaging, and direct (typically 1-3 natural sentences) so it flows smoothly in real-time voice conversations.\nDo not use markdown formatting like asterisks, bullet points, or code blocks, since your words will be spoken out loud."
+    },
+    "startTime": "2026-10-09T10:55:29.057Z",
+    "endTime": "2026-10-09T10:56:39.183Z",
+    "durationSeconds": 70,
+    "transcript": [
+      {
+        "role": "user",
+        "text": "व्हाट'एस ओं योर",
+        "timestamp": "2026-10-09T10:55:36.960Z",
+        "audioSeconds": 7
+      },
+      {
+        "role": "agent",
+        "text": "I'm just getting everything ready to help you out! What's on your mind today?",
+        "timestamp": "2026-10-09T10:55:36.960Z",
+        "audioSeconds": 6,
+        "tokens": {
+          "inputTokens": 91,
+          "outputTokens": 20
+        },
+        "turnCost": 0.0005
+      }
+    ],
+    "usage": {
+      "inputTokens": 91,
+      "outputTokens": 20,
+      "audioInputSeconds": 7,
+      "audioOutputSeconds": 6,
+      "totalTokens": 466
+    },
+    "cost": {
+      "totalCost": 0.0005,
+      "breakdown": {
+        "textInputCost": 0.000009,
+        "textOutputCost": 0.000008,
+        "audioInputCost": 0.000122,
+        "audioOutputCost": 0.00036
+      }
+    }
+  },
+  {
+    "id": "10b4a241-d239-45df-8c6a-683434b692cd",
+    "status": "completed",
+    "persona": {
+      "id": "gemini_assistant",
+      "name": "Gemini Voice Assistant",
+      "systemPrompt": "You are Gemini, a helpful, friendly, and highly intelligent conversational voice assistant.\nRespond naturally to any question the user asks.\nKeep your spoken responses concise, engaging, and direct (typically 1-3 natural sentences) so it flows smoothly in real-time voice conversations.\nDo not use markdown formatting like asterisks, bullet points, or code blocks, since your words will be spoken out loud."
+    },
+    "startTime": "2026-10-09T10:56:43.213Z",
+    "endTime": "2026-10-09T10:59:06.914Z",
+    "durationSeconds": 144,
+    "transcript": [
+      {
+        "role": "user",
+        "text": "hello",
+        "timestamp": "2026-10-09T10:56:49.993Z",
+        "audioSeconds": 5
+      },
+      {
+        "role": "agent",
+        "text": "Hello! How can I help you today?",
+        "timestamp": "2026-10-09T10:56:49.993Z",
+        "audioSeconds": 3,
+        "tokens": {
+          "inputTokens": 85,
+          "outputTokens": 9
+        },
+        "turnCost": 0.00028
+      },
+      {
+        "role": "user",
+        "text": "what is Java",
+        "timestamp": "2026-10-09T10:57:05.793Z",
+        "audioSeconds": 10
+      },
+      {
+        "role": "agent",
+        "text": "Java is a popular, object-oriented programming language known for its write once, run anywhere philosophy. It's widely used for building everything from mobile apps to large-scale enterprise systems.",
+        "timestamp": "2026-10-09T10:57:05.793Z",
+        "audioSeconds": 11,
+        "tokens": {
+          "inputTokens": 99,
+          "outputTokens": 38
+        },
+        "turnCost": 0.00086
+      },
+      {
+        "role": "user",
+        "text": "tell about pillar of Java",
+        "timestamp": "2026-10-09T10:57:27.334Z",
+        "audioSeconds": 6
+      },
+      {
+        "role": "agent",
+        "text": "Java is built on four main pillars of object-oriented programming. They are encapsulation for bundling data, inheritance for reusing code, polymorphism for using objects in multiple ways, and abstraction for hiding complex details. Together, they make Java programs organized and easy to maintain.",
+        "timestamp": "2026-10-09T10:57:27.334Z",
+        "audioSeconds": 17,
+        "tokens": {
+          "inputTokens": 144,
+          "outputTokens": 52
+        },
+        "turnCost": 0.00116
+      },
+      {
+        "role": "user",
+        "text": "time right now",
+        "timestamp": "2026-10-09T10:57:55.298Z",
+        "audioSeconds": 5
+      },
+      {
+        "role": "agent",
+        "text": "I don't have access to your local time zone, so I can't check the current time for you. You should be able to see it right on your device, though!",
+        "timestamp": "2026-10-09T10:57:55.298Z",
+        "audioSeconds": 12,
+        "tokens": {
+          "inputTokens": 201,
+          "outputTokens": 38
+        },
+        "turnCost": 0.000843
+      },
+      {
+        "role": "user",
+        "text": "India",
+        "timestamp": "2026-10-09T10:58:12.394Z",
+        "audioSeconds": 4
+      },
+      {
+        "role": "agent",
+        "text": "Right now in India, it's currently evening. If you need the exact time, it's best to check the clock on your device since I don't track live time zones.",
+        "timestamp": "2026-10-09T10:58:12.394Z",
+        "audioSeconds": 12,
+        "tokens": {
+          "inputTokens": 242,
+          "outputTokens": 39
+        },
+        "turnCost": 0.00083
+      },
+      {
+        "role": "user",
+        "text": "what's today current news",
+        "timestamp": "2026-10-09T10:58:49.433Z",
+        "audioSeconds": 10
+      },
+      {
+        "role": "agent",
+        "text": "I don't have access to real-time news updates, so I can't share what's happening today. You might want to check a news website or app for the latest headlines.",
+        "timestamp": "2026-10-09T10:58:49.433Z",
+        "audioSeconds": 12,
+        "tokens": {
+          "inputTokens": 289,
+          "outputTokens": 40
+        },
+        "turnCost": 0.00094
+      }
+    ],
+    "usage": {
+      "inputTokens": 1060,
+      "outputTokens": 216,
+      "audioInputSeconds": 40,
+      "audioOutputSeconds": 67,
+      "totalTokens": 4286
+    },
+    "cost": {
+      "totalCost": 0.004912,
+      "breakdown": {
+        "textInputCost": 0.000106,
+        "textOutputCost": 0.000086,
+        "audioInputCost": 0.0007,
+        "audioOutputCost": 0.00402
+      }
+    }
   }
 ]
