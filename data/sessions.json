@@ -558,5 +558,320 @@
         "audioOutputCost": 0.00018
       }
     }
+  },
+  {
+    "id": "4aebd6d3-fab0-469f-b7fd-fb49be5a9a3d",
+    "status": "completed",
+    "persona": {
+      "id": "gemini_assistant",
+      "name": "Gemini Voice Assistant",
+      "systemPrompt": "You are Gemini, a helpful, friendly, and highly intelligent conversational voice assistant.\nRespond naturally to any question the user asks.\nKeep your spoken responses concise, engaging, and direct (typically 1-3 natural sentences) so it flows smoothly in real-time voice conversations.\nDo not use markdown formatting like asterisks, bullet points, or code blocks, since your words will be spoken out loud."
+    },
+    "startTime": "2026-10-09T09:56:48.492Z",
+    "endTime": "2026-10-09T09:57:52.934Z",
+    "durationSeconds": 64,
+    "transcript": [
+      {
+        "role": "user",
+        "text": "hello",
+        "timestamp": "2026-10-09T09:56:52.688Z",
+        "audioSeconds": 3
+      },
+      {
+        "role": "agent",
+        "text": "Hello! How can I help you today?",
+        "timestamp": "2026-10-09T09:56:52.688Z",
+        "audioSeconds": 3,
+        "tokens": {
+          "inputTokens": 85,
+          "outputTokens": 9
+        },
+        "turnCost": 0.000245
+      },
+      {
+        "role": "user",
+        "text": "you know what is job",
+        "timestamp": "2026-10-09T09:57:02.914Z",
+        "audioSeconds": 4
+      },
+      {
+        "role": "agent",
+        "text": "Yep, a job is basically regular work you do to earn money. Are you thinking about a specific career, or just curious?",
+        "timestamp": "2026-10-09T09:57:02.914Z",
+        "audioSeconds": 9,
+        "tokens": {
+          "inputTokens": 101,
+          "outputTokens": 26
+        },
+        "turnCost": 0.00063
+      },
+      {
+        "role": "user",
+        "text": "you know what is job",
+        "timestamp": "2026-10-09T09:57:03.383Z",
+        "audioSeconds": 5
+      },
+      {
+        "role": "agent",
+        "text": "Yep, a job is usually an activity you do in exchange for money, like work or employment. Are you looking for career advice or just curious?",
+        "timestamp": "2026-10-09T09:57:03.383Z",
+        "audioSeconds": 10,
+        "tokens": {
+          "inputTokens": 101,
+          "outputTokens": 30
+        },
+        "turnCost": 0.00071
+      },
+      {
+        "role": "user",
+        "text": "I am talking about Java",
+        "timestamp": "2026-10-09T09:57:18.710Z",
+        "audioSeconds": 13
+      },
+      {
+        "role": "agent",
+        "text": "Oh, Java! That makes much more sense. Java is a popular programming language used for building all kinds of applications, from mobile apps to large enterprise systems. Are you learning how to code in Java?",
+        "timestamp": "2026-10-09T09:57:18.710Z",
+        "audioSeconds": 14,
+        "tokens": {
+          "inputTokens": 171,
+          "outputTokens": 41
+        },
+        "turnCost": 0.001101
+      },
+      {
+        "role": "user",
+        "text": "I am talking about Java",
+        "timestamp": "2026-10-09T09:57:18.716Z",
+        "audioSeconds": 13
+      },
+      {
+        "role": "agent",
+        "text": "Ah, Java! That makes much more sense. Java is a popular programming language used for building everything from mobile apps to large enterprise software. Are you learning how to code in Java?",
+        "timestamp": "2026-10-09T09:57:18.716Z",
+        "audioSeconds": 13,
+        "tokens": {
+          "inputTokens": 171,
+          "outputTokens": 37
+        },
+        "turnCost": 0.001039
+      },
+      {
+        "role": "user",
+        "text": "that's great",
+        "timestamp": "2026-10-09T09:57:38.504Z",
+        "audioSeconds": 18
+      },
+      {
+        "role": "agent",
+        "text": "It really is! There's a lot you can build with it. Are you working on a Java project right now?",
+        "timestamp": "2026-10-09T09:57:38.504Z",
+        "audioSeconds": 8,
+        "tokens": {
+          "inputTokens": 262,
+          "outputTokens": 25
+        },
+        "turnCost": 0.000831
+      },
+      {
+        "role": "user",
+        "text": "that's great",
+        "timestamp": "2026-10-09T09:57:42.593Z",
+        "audioSeconds": 18
+      },
+      {
+        "role": "agent",
+        "text": "It really is a powerful language to learn. Are you working on a project, or just starting out with the basics?",
+        "timestamp": "2026-10-09T09:57:42.593Z",
+        "audioSeconds": 8,
+        "tokens": {
+          "inputTokens": 262,
+          "outputTokens": 24
+        },
+        "turnCost": 0.000831
+      }
+    ],
+    "usage": {
+      "inputTokens": 1153,
+      "outputTokens": 192,
+      "audioInputSeconds": 74,
+      "audioOutputSeconds": 65,
+      "totalTokens": 5145
+    },
+    "cost": {
+      "totalCost": 0.005387,
+      "breakdown": {
+        "textInputCost": 0.000115,
+        "textOutputCost": 0.000077,
+        "audioInputCost": 0.001295,
+        "audioOutputCost": 0.0039
+      }
+    }
+  },
+  {
+    "id": "ba576017-49e9-459d-9a4c-f332fece1de1",
+    "status": "completed",
+    "persona": {
+      "id": "gemini_assistant",
+      "name": "Gemini Voice Assistant",
+      "systemPrompt": "You are Gemini, a helpful, friendly, and highly intelligent conversational voice assistant.\nRespond naturally to any question the user asks.\nKeep your spoken responses concise, engaging, and direct (typically 1-3 natural sentences) so it flows smoothly in real-time voice conversations.\nDo not use markdown formatting like asterisks, bullet points, or code blocks, since your words will be spoken out loud."
+    },
+    "startTime": "2026-10-09T10:04:07.389Z",
+    "endTime": "2026-10-09T10:06:12.325Z",
+    "durationSeconds": 125,
+    "transcript": [
+      {
+        "role": "user",
+        "text": "hey there are you listen",
+        "timestamp": "2026-10-09T10:04:14.404Z",
+        "audioSeconds": 6
+      },
+      {
+        "role": "agent",
+        "text": "I'm listening! What's on your mind?",
+        "timestamp": "2026-10-09T10:04:14.404Z",
+        "audioSeconds": 2,
+        "tokens": {
+          "inputTokens": 89,
+          "outputTokens": 12
+        },
+        "turnCost": 0.000239
+      },
+      {
+        "role": "user",
+        "text": "have some doubts in no",
+        "timestamp": "2026-10-09T10:04:23.856Z",
+        "audioSeconds": 4
+      },
+      {
+        "role": "agent",
+        "text": "I'm here to help. What are your doubts about?",
+        "timestamp": "2026-10-09T10:04:23.856Z",
+        "audioSeconds": 4,
+        "tokens": {
+          "inputTokens": 108,
+          "outputTokens": 13
+        },
+        "turnCost": 0.000326
+      },
+      {
+        "role": "user",
+        "text": "mind I have some doubt in no chase",
+        "timestamp": "2026-10-09T10:04:34.601Z",
+        "audioSeconds": 4
+      },
+      {
+        "role": "agent",
+        "text": "Did you mean \"no-contest,\" or maybe something legal? Let me know the details, and I'll do my best to clear it up for you.",
+        "timestamp": "2026-10-09T10:04:34.601Z",
+        "audioSeconds": 10,
+        "tokens": {
+          "inputTokens": 131,
+          "outputTokens": 33
+        },
+        "turnCost": 0.000696
+      },
+      {
+        "role": "user",
+        "text": "I am talking about more Jazz",
+        "timestamp": "2026-10-09T10:04:49.997Z",
+        "audioSeconds": 4
+      },
+      {
+        "role": "agent",
+        "text": "Ah, the Utah Jazz! What's on your mind about the team? Are you wondering about their roster, recent games, or something else?",
+        "timestamp": "2026-10-09T10:04:49.997Z",
+        "audioSeconds": 9,
+        "tokens": {
+          "inputTokens": 172,
+          "outputTokens": 30
+        },
+        "turnCost": 0.000639
+      },
+      {
+        "role": "user",
+        "text": "I am talking about no diss",
+        "timestamp": "2026-10-09T10:04:57.874Z",
+        "audioSeconds": 5
+      },
+      {
+        "role": "agent",
+        "text": "Could you say that again? I'm not quite catching what \"no diss\" means in relation to the Jazz.",
+        "timestamp": "2026-10-09T10:04:57.874Z",
+        "audioSeconds": 7,
+        "tokens": {
+          "inputTokens": 210,
+          "outputTokens": 24
+        },
+        "turnCost": 0.000538
+      },
+      {
+        "role": "user",
+        "text": "node.js",
+        "timestamp": "2026-10-09T10:05:01.089Z",
+        "audioSeconds": 2
+      },
+      {
+        "role": "agent",
+        "text": "Ah, Node.js! That makes a lot more sense than the Utah Jazz. What are your doubts about it?",
+        "timestamp": "2026-10-09T10:05:01.089Z",
+        "audioSeconds": 7,
+        "tokens": {
+          "inputTokens": 239,
+          "outputTokens": 24
+        },
+        "turnCost": 0.000489
+      },
+      {
+        "role": "user",
+        "text": "could you teach me about that",
+        "timestamp": "2026-10-09T10:05:23.403Z",
+        "audioSeconds": 8
+      },
+      {
+        "role": "agent",
+        "text": "I'd love to! Node.js lets you run JavaScript outside of the browser, mostly for building backend servers and web apps. What specific part would you like to start with?",
+        "timestamp": "2026-10-09T10:05:23.403Z",
+        "audioSeconds": 12,
+        "tokens": {
+          "inputTokens": 271,
+          "outputTokens": 37
+        },
+        "turnCost": 0.000902
+      },
+      {
+        "role": "user",
+        "text": "can we discuss can we start to discussing about socket",
+        "timestamp": "2026-10-09T10:05:55.702Z",
+        "audioSeconds": 15
+      },
+      {
+        "role": "agent",
+        "text": "WebSockets are great for real-time communication, like chat apps or live feeds, because they keep an open connection between the client and server. In Node.js, we usually use a library called Socket.io to make this super easy. Want to see a quick example of how it works?",
+        "timestamp": "2026-10-09T10:05:55.702Z",
+        "audioSeconds": 19,
+        "tokens": {
+          "inputTokens": 320,
+          "outputTokens": 60
+        },
+        "turnCost": 0.001458
+      }
+    ],
+    "usage": {
+      "inputTokens": 1540,
+      "outputTokens": 233,
+      "audioInputSeconds": 48,
+      "audioOutputSeconds": 70,
+      "totalTokens": 5073
+    },
+    "cost": {
+      "totalCost": 0.005287,
+      "breakdown": {
+        "textInputCost": 0.000154,
+        "textOutputCost": 0.000093,
+        "audioInputCost": 0.00084,
+        "audioOutputCost": 0.0042
+      }
+    }
   }
 ]
