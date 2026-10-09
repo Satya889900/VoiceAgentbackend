@@ -1,0 +1,189 @@
+[
+  {
+    "id": "027ca94b-4ac3-47d5-80ab-c0d5d06b6a34",
+    "status": "completed",
+    "persona": {
+      "id": "customer_support",
+      "name": "Customer Support Representative",
+      "systemPrompt": "You are Nova, a friendly and empathetic customer support representative for CloudTech Solutions.\nKeep your spoken responses natural, conversational, polite, and concise (under 2-3 sentences), since this is a real-time voice conversation.\nAcknowledge the user's issue directly, provide clear steps, and offer further assistance."
+    },
+    "startTime": "2026-10-09T07:55:48.539Z",
+    "endTime": "2026-10-09T07:55:48.573Z",
+    "durationSeconds": 1,
+    "transcript": [
+      {
+        "role": "user",
+        "text": "Hello, my order arrived damaged and I need a replacement.",
+        "timestamp": "2026-10-09T07:55:48.561Z",
+        "audioSeconds": 3
+      },
+      {
+        "role": "agent",
+        "text": "I apologize for that inconvenience. I can definitely help resolve this for you today. Could you confirm your account ID or email? (Demo Mode)",
+        "timestamp": "2026-10-09T07:55:48.561Z",
+        "audioSeconds": 10,
+        "tokens": {
+          "inputTokens": 97,
+          "outputTokens": 36
+        },
+        "turnCost": 0.000677
+      }
+    ],
+    "usage": {
+      "inputTokens": 97,
+      "outputTokens": 36,
+      "audioInputSeconds": 3,
+      "audioOutputSeconds": 10,
+      "totalTokens": 508
+    },
+    "cost": {
+      "totalCost": 0.000677,
+      "breakdown": {
+        "textInputCost": 0.00001,
+        "textOutputCost": 0.000014,
+        "audioInputCost": 0.000052,
+        "audioOutputCost": 0.0006
+      }
+    }
+  },
+  {
+    "id": "9f3478be-bdf5-4d4f-8d50-98fead783364",
+    "status": "completed",
+    "persona": {
+      "id": "customer_support",
+      "name": "Customer Support Representative",
+      "systemPrompt": "You are Nova, a friendly and empathetic customer support representative for CloudTech Solutions.\nKeep your spoken responses natural, conversational, polite, and concise (under 2-3 sentences), since this is a real-time voice conversation.\nAcknowledge the user's issue directly, provide clear steps, and offer further assistance."
+    },
+    "startTime": "2026-10-09T07:58:16.876Z",
+    "endTime": "2026-10-09T07:59:08.825Z",
+    "durationSeconds": 52,
+    "transcript": [
+      {
+        "role": "user",
+        "text": "hello I am audible",
+        "timestamp": "2026-10-09T07:58:47.106Z",
+        "audioSeconds": 3
+      },
+      {
+        "role": "agent",
+        "text": "Thank you for reaching out! I understand completely. Let me pull up your account details right away to assist you with this. (Demo Mode)",
+        "timestamp": "2026-10-09T07:58:47.106Z",
+        "audioSeconds": 10,
+        "tokens": {
+          "inputTokens": 87,
+          "outputTokens": 34
+        },
+        "turnCost": 0.000675
+      }
+    ],
+    "usage": {
+      "inputTokens": 87,
+      "outputTokens": 34,
+      "audioInputSeconds": 3,
+      "audioOutputSeconds": 10,
+      "totalTokens": 496
+    },
+    "cost": {
+      "totalCost": 0.000675,
+      "breakdown": {
+        "textInputCost": 0.000009,
+        "textOutputCost": 0.000014,
+        "audioInputCost": 0.000052,
+        "audioOutputCost": 0.0006
+      }
+    }
+  },
+  {
+    "id": "7248ad03-6e4f-498d-815f-a67356ac39e1",
+    "status": "completed",
+    "persona": {
+      "id": "customer_support",
+      "name": "Customer Support Representative",
+      "systemPrompt": "You are Nova, a friendly and empathetic customer support representative for CloudTech Solutions.\nKeep your spoken responses natural, conversational, polite, and concise (under 2-3 sentences), since this is a real-time voice conversation.\nAcknowledge the user's issue directly, provide clear steps, and offer further assistance."
+    },
+    "startTime": "2026-10-09T08:00:01.967Z",
+    "endTime": "2026-10-09T08:00:28.613Z",
+    "durationSeconds": 92,
+    "transcript": [
+      {
+        "role": "user",
+        "text": "hello",
+        "timestamp": "2026-10-09T08:00:16.553Z",
+        "audioSeconds": 3
+      },
+      {
+        "role": "agent",
+        "text": "All set! I've logged that request and our team will follow up within the hour. Is there anything else I can help with? (Demo Mode)",
+        "timestamp": "2026-10-09T08:00:16.553Z",
+        "audioSeconds": 10,
+        "tokens": {
+          "inputTokens": 84,
+          "outputTokens": 33
+        },
+        "turnCost": 0.000674
+      },
+      {
+        "role": "user",
+        "text": "hello",
+        "timestamp": "2026-10-09T08:01:34.342Z",
+        "audioSeconds": 7
+      },
+      {
+        "role": "agent",
+        "text": "I apologize for that inconvenience. I can definitely help resolve this for you today. Could you confirm your account ID or email? (Demo Mode)",
+        "timestamp": "2026-10-09T08:01:34.342Z",
+        "audioSeconds": 10,
+        "tokens": {
+          "inputTokens": 84,
+          "outputTokens": 36
+        },
+        "turnCost": 0.000745
+      }
+    ],
+    "usage": {
+      "inputTokens": 168,
+      "outputTokens": 69,
+      "audioInputSeconds": 10,
+      "audioOutputSeconds": 20,
+      "totalTokens": 1087
+    },
+    "cost": {
+      "totalCost": 0.001419,
+      "breakdown": {
+        "textInputCost": 0.000017,
+        "textOutputCost": 0.000028,
+        "audioInputCost": 0.000175,
+        "audioOutputCost": 0.0012
+      }
+    }
+  },
+  {
+    "id": "0b7f6074-e5c9-4ec6-9ee0-1f6525e54596",
+    "status": "active",
+    "persona": {
+      "id": "technical_support",
+      "name": "Technical Solutions Specialist",
+      "systemPrompt": "You are Taylor, a senior technical support engineer.\nDeliver direct, troubleshooting-focused answers in 2-3 short sentences suited for spoken voice conversation.\nClarify error states, diagnose root causes concisely, and give actionable next steps."
+    },
+    "startTime": "2026-10-09T08:01:27.126Z",
+    "endTime": null,
+    "durationSeconds": 0,
+    "transcript": [],
+    "usage": {
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "audioInputSeconds": 0,
+      "audioOutputSeconds": 0,
+      "totalTokens": 0
+    },
+    "cost": {
+      "totalCost": 0,
+      "breakdown": {
+        "textInputCost": 0,
+        "textOutputCost": 0,
+        "audioInputCost": 0,
+        "audioOutputCost": 0
+      }
+    }
+  }
+]
